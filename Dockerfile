@@ -3,7 +3,8 @@ FROM maven:3-jdk-8
 MAINTAINER andreas.waelchli@me.com
 
 ENV TZ=Europe/Zurich
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezoneENV appdir /usr/src/app/
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ENV appdir /usr/src/app/
 ENV rm -rf /usr/src/app/
 RUN mkdir -p $appdir
 WORKDIR $appdir
