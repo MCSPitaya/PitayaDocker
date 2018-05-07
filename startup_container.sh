@@ -8,6 +8,6 @@ git init
 git remote add origin https://github.com/MCSPitaya/PitayaServer.git
 git pull origin master
 
-./mvnw clean install
+mvn clean install
 
 java -jar target/pitaya*.jar
