@@ -2,11 +2,8 @@ FROM maven:3-jdk-8
 
 MAINTAINER andreas.waelchli@me.com
 
-# Set this environment variable to true to set timezone on container start.
-ENV SET_CONTAINER_TIMEZONE false
-# Default container timezone as found under the directory /usr/share/zoneinfo/.
-ENV CONTAINER_TIMEZONE Europe/Zurich
-ENV appdir /usr/src/app/
+ENV TZ=Europe/Zurich
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezoneENV appdir /usr/src/app/
 ENV rm -rf /usr/src/app/
 RUN mkdir -p $appdir
 WORKDIR $appdir
